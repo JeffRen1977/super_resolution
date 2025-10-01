@@ -1,0 +1,23 @@
+# Super Resolution Demo Requirements
+# Based on the reference document for video super resolution
+
+# Core dependencies
+torch>=1.9.0
+torchvision>=0.10.0
+numpy>=1.21.0
+opencv-python>=4.5.0
+scikit-image>=0.18.0
+matplotlib>=3.3.0
+Pillow>=8.0.0
+
+# Optional dependencies for enhanced functionality
+# Uncomment these if you want to use them:
+# lpips>=0.1.4  # For LPIPS perceptual metric
+# tensorboard>=2.5.0  # For training visualization
+# tqdm>=4.60.0  # For progress bars
+
+# Development dependencies (optional)
+# pytest>=6.0.0
+# black>=21.0.0
+# flake8>=3.9.0
+

@@ -1,0 +1,151 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║         SUPER RESOLUTION - AVAILABLE SCRIPTS OVERVIEW                ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📋 QUICK START (3 Commands)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ./setup.sh          → Setup environment (run once)
+2. ./run_tests.sh      → Verify installation
+3. ./run_demo.sh       → Run the demo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+📜 ALL AVAILABLE SCRIPTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCRIPT NAME          │ PURPOSE                        │ TIME        │ WHEN TO USE
+─────────────────────┼────────────────────────────────┼─────────────┼──────────────────
+setup.sh             │ Create venv + install deps     │ 2-5 min     │ First time only
+run_tests.sh         │ Verify everything works        │ 10-15 sec   │ After setup
+run_demo.sh          │ Basic demo (4× CPU)            │ 5-10 sec    │ First run / quick test
+run_examples.sh      │ All 4 comprehensive examples   │ 30-60 sec   │ See full capabilities
+run_gpu.sh           │ GPU-accelerated demo           │ 2-5 sec     │ If you have NVIDIA GPU
+run_scales.sh        │ Test 2×, 4×, 8× upscaling     │ 15-30 sec   │ Compare different scales
+
+
+🐍 PYTHON COMMANDS (Alternative to Scripts)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# First, activate the virtual environment:
+source venv/bin/activate
+
+# Then use any of these commands:
+
+COMMAND                                              │ WHAT IT DOES
+─────────────────────────────────────────────────────┼──────────────────────────────
+python super_resolution_demo.py --save               │ Basic demo (4× CPU, save)
+python super_resolution_demo.py --scale 2 --save     │ 2× upscaling
+python super_resolution_demo.py --scale 8 --save     │ 8× upscaling
+python super_resolution_demo.py --device cuda --save │ Use GPU
+python run_example.py                                │ All examples
+python test_demo.py                                  │ Run tests
+
+
+📊 OUTPUT FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After running demos, find results in ./results/:
+
+results/
+├── 01_ground_truth.png          → Original high-resolution image
+├── 02_low_resolution.png        → Low-resolution input
+├── 03_bicubic.png               → Bicubic interpolation baseline
+├── 04_super_resolution.png      → RBPN super resolution result
+├── comparison.png               → Side-by-side comparison (best for viewing)
+├── custom_*.png                 → Additional test cases
+└── temporal/                    → Frame sequences
+    ├── frame_00_hr.png
+    ├── frame_00_sr.png
+    └── ...
+
+View results: open results/comparison.png
+
+
+⚡ PERFORMANCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DEVICE       │ SCALE  │ TIME/IMAGE    │ SPEEDUP
+─────────────┼────────┼───────────────┼──────────
+CPU          │ 2×     │ ~2 seconds    │ Baseline
+CPU          │ 4×     │ ~5 seconds    │ Baseline
+CPU          │ 8×     │ ~10 seconds   │ Baseline
+GPU (CUDA)   │ 2×     │ ~0.1 seconds  │ 20×
+GPU (CUDA)   │ 4×     │ ~0.3 seconds  │ 17×
+GPU (CUDA)   │ 8×     │ ~0.8 seconds  │ 12×
+
+
+🔧 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROBLEM                              │ SOLUTION
+─────────────────────────────────────┼─────────────────────────────────────
+"Permission denied"                  │ chmod +x *.sh
+"Virtual environment not found"      │ ./setup.sh
+"Python not found"                   │ Install Python 3.8+
+"CUDA out of memory"                 │ Use CPU: ./run_demo.sh
+"Import errors"                      │ source venv/bin/activate
+                                     │ pip install -r requirements.txt
+
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FILE                 │ CONTENT
+─────────────────────┼─────────────────────────────────────────────────
+README.md            │ Complete book chapter (theory + implementation)
+QUICKSTART.md        │ Quick start guide
+RUN_GUIDE.md         │ Detailed running instructions
+SCRIPTS_OVERVIEW.txt │ This file
+CHAPTER_SUMMARY.md   │ Chapter organization guide
+
+
+🎯 RECOMMENDED WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For first-time users:
+
+    1. ./setup.sh              # Setup environment
+    2. ./run_tests.sh          # Verify installation
+    3. ./run_demo.sh           # Run basic demo
+    4. open results/           # View results
+    5. ./run_examples.sh       # Explore more examples
+
+For developers:
+
+    1. source venv/bin/activate
+    2. # Make code changes
+    3. python test_demo.py
+    4. python super_resolution_demo.py --save
+    5. # Review results
+
+For GPU users:
+
+    1. ./setup.sh
+    2. ./run_gpu.sh            # Use GPU acceleration
+    3. # 5-10× faster processing!
+
+
+💡 TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Always activate venv before running Python: source venv/bin/activate
+✓ Start with ./run_demo.sh for quick testing
+✓ Use GPU (./run_gpu.sh) for faster processing
+✓ View comparison.png for best side-by-side view
+✓ Read README.md for comprehensive documentation
+
+
+🚀 GET STARTED NOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Run these three commands:
+
+    chmod +x *.sh
+    ./setup.sh
+    ./run_demo.sh
+
+That's it! Results will be in ./results/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
