@@ -1,5 +1,6 @@
 # Python virtual environment
 venv/
+virtual_env/
 env/
 ENV/
 .venv
@@ -67,4 +68,5 @@ htmlcov/
 *_backup.md
 *.bak
 *.tmp
+
 

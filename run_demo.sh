@@ -7,7 +7,7 @@ echo "================================"
 echo ""
 
 # Check if virtual environment exists
-if [ ! -d "venv" ]; then
+if [ ! -d "../virtual_env" ]; then
     echo "❌ Virtual environment not found!"
     echo "Please run ./setup.sh first to set up the environment."
     exit 1
@@ -15,7 +15,7 @@ fi
 
 # Activate virtual environment
 echo "🔧 Activating virtual environment..."
-source venv/bin/activate
+source ../virtual_env/bin/activate
 
 echo ""
 echo "🚀 Running demo with default parameters (4x scale, CPU, save results)..."
@@ -36,4 +36,5 @@ else
     echo "❌ Demo failed. Please check the error messages above."
     exit 1
 fi
+
 

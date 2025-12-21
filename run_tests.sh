@@ -7,7 +7,7 @@ echo "======================================"
 echo ""
 
 # Check if virtual environment exists
-if [ ! -d "venv" ]; then
+if [ ! -d "../virtual_env" ]; then
     echo "❌ Virtual environment not found!"
     echo "Please run ./setup.sh first to set up the environment."
     exit 1
@@ -15,7 +15,7 @@ fi
 
 # Activate virtual environment
 echo "🔧 Activating virtual environment..."
-source venv/bin/activate
+source ../virtual_env/bin/activate
 
 echo ""
 echo "🚀 Running tests..."
@@ -29,6 +29,7 @@ if [ $? -eq 0 ]; then
     echo "The super resolution demo is working correctly."
     echo ""
     echo "Next steps:"
+    echo "  - Learn Chapter 22:     ./run_chapter22.sh (educational path)"
     echo "  - Run basic demo:        ./run_demo.sh"
     echo "  - Run all examples:      ./run_examples.sh"
     echo "  - Run with GPU:          ./run_gpu.sh"
@@ -39,4 +40,5 @@ else
     echo "Make sure all dependencies are installed correctly."
     exit 1
 fi
+
 

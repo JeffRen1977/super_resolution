@@ -16,20 +16,20 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "📦 Creating virtual environment..."
-python3 -m venv venv
+echo "📦 Creating virtual environment in parent directory..."
+python3 -m venv ../virtual_env
 
 if [ $? -ne 0 ]; then
     echo "❌ Failed to create virtual environment."
     exit 1
 fi
 
-echo "✅ Virtual environment created successfully!"
+echo "✅ Virtual environment created successfully in ../virtual_env!"
 echo ""
 
 # Activate virtual environment
 echo "🔧 Activating virtual environment..."
-source venv/bin/activate
+source ../virtual_env/bin/activate
 
 echo ""
 echo "⬆️  Upgrading pip..."
@@ -50,9 +50,10 @@ echo ""
 echo "🎉 Setup complete!"
 echo ""
 echo "To activate the virtual environment in the future, run:"
-echo "    source venv/bin/activate"
+echo "    source ../virtual_env/bin/activate"
 echo ""
 echo "To run the demo, use:"
 echo "    ./run_demo.sh"
 echo ""
+
 
