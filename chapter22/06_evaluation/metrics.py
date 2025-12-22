@@ -138,3 +138,4 @@ def print_evaluation_results(metrics: dict, method_name: str = "Method"):
     print(f"SSIM: {metrics['SSIM']:.4f} - {interpret_ssim(metrics['SSIM'])}")
     print(f"{'='*60}\n")
 
+
