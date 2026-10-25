@@ -51,39 +51,25 @@ This chapter explores video super resolution (VSR) using Recurrent Back-Projecti
 ### Step 1: Setup Environment
 
 ```bash
-# Make scripts executable
-chmod +x *.sh
+# Activate the shared virtual environment
+source ../virtual_env/bin/activate
 
-# Run setup (only needed once)
-./setup.sh
+# Install dependencies
+pip install -r requirements.txt
 ```
-
-**What it does:**
-- Creates Python virtual environment
-- Installs all dependencies (PyTorch, OpenCV, NumPy, scikit-image, Matplotlib)
-- Verifies Python version
-
-**Expected time:** 2-5 minutes (depending on internet speed)
 
 ### Step 2: Run Tests
 
 ```bash
-# Verify everything works
-./run_tests.sh
+# Run the pytest test suite
+python3 -m pytest tests/ -v
 ```
-
-**What it does:**
-- Tests all imports (PyTorch, OpenCV, NumPy, etc.)
-- Verifies evaluation metrics (PSNR, SSIM)
-- Tests super resolution functionality
-
-**Expected output:** All tests should pass ✅
 
 ### Step 3: Run Demo
 
 ```bash
 # Run basic demo
-./run_demo.sh
+python3 super_resolution_demo.py --save
 ```
 
 **What it does:**
@@ -205,7 +191,7 @@ python run_example.py
 
 **6. Run tests:**
 ```bash
-python test_demo.py
+python3 -m pytest tests/ -v
 ```
 
 **7. Run Chapter 22 educational path:**
